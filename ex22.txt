@@ -1,0 +1,73 @@
+print x
+This prints the following string 'x'. The string is either a variable of type string, 
+or it is directly a string. Strings are encased in either " or ' characters. If the 
+enclosing character is necessarily used inside the string then it must be escaped with 
+an immediately preceeding \ character. It can also have variables inserted into it. 
+Where in the string an indeterminate value is to be entered; a '%r' is put, a digit; 
+an '%d' and '%s' for a string. In this case, after the string's enclosing " or ', a 
+% is put, then inside a pair of curved brackets (), separated by commas, the variables 
+whos values are to be inserted into the string in order. 
+
+variables 
+Python is dynamically typed. To declare a variable, its name is typed on a new line, 
+followed by an '=' character, followed by the variables value. 
+e.g. 
+name = 'chor'
+is a string with the value of chor. 
+
+functions
+A function is specified by 'def' being stated on a new line, followed by the function's 
+name, then curved brackets with no whitespace between the function name and the first 
+bracket. Inside the brackets the names of parameters are specified, and they can be
+accessed within the scope of the function. Immediately following the definition line, 
+contiguous lines indented with four 'space' characters only make up the body of the 
+function, which is code that is executed upon the calling of the function. 
+To call a function, it's name is specified, immediately followed (with no separating 
+whitespace) by curved brackets, inside which should be placed variables or values 
+to be the function's parameter's values. 
+the return keyword. 
+The return keyword, when placed on the last line of the last line of the function and 
+followed by a variable or value of some sort, causes whatever that value is to be 
+inserted into that location in the code. 
+
+Import statements 
+To import a library, in contiguous lines from the start of the file:
+From <location of code to import> import <what to import>
+Where <location of code to import> is the '.' separated path to the code to be 
+imported, e.g. 'sys' or 'os.path'
+And <what to import> is the entity to be imported, 
+e.g. 'argv' or 'exists'
+Complete e.g.
+from sys import argv
+from os.path import exists
+
+Reading in from the cli
+Import argv from sys. The variable 'argv' is then available within the scope of the 
+script, which is an array of length n+1 where n is the number of arguments specified 
+on the cli. They are usually then assigned to variables in following fashion: 
+e.g. 
+script, from_file, to_file = argv
+Where script is the name of the script e.g. read_write_file.py
+from_file and to_file are the names of files. 
+
+File IO
+
+
+# we could do these two on one line too, how? 
+input = open(from_file)
+indata = input.read()
+#like this: indata = open(from_file).read(), and removing input.close() from the end of the file
+
+print "The input files is %d bytes long" % len(indata)
+
+print "Does the output file exist? %r" % exists(to_file)
+print "Ready, hit RETURN to continue, CTRL-C to abort."
+raw_input()
+
+output = open(to_file, 'w')
+output.write(indata)
+
+print "Alright, all done."
+
+output.close()
+input.close()
