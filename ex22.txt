@@ -49,25 +49,42 @@ e.g.
 script, from_file, to_file = argv
 Where script is the name of the script e.g. read_write_file.py
 from_file and to_file are the names of files. 
+During the execution of the script, more data can also be requested from the user via
+cli input by calling the 'raw_input' function, as follows:
+name = raw_input()
+Where 'name' is a variable whos value will be whatever the user types in when prompted. 
+The prompt symbol can be set arbitrarily by providing it as a string paramter to 
+raw_input, e.g.
+raw_input('-->')
+Will cause the user to see --> as the cli prompt. 
 
 File IO
-
-
-# we could do these two on one line too, how? 
-input = open(from_file)
-indata = input.read()
-#like this: indata = open(from_file).read(), and removing input.close() from the end of the file
-
-print "The input files is %d bytes long" % len(indata)
-
-print "Does the output file exist? %r" % exists(to_file)
-print "Ready, hit RETURN to continue, CTRL-C to abort."
-raw_input()
-
+To input to and output from a file, you must first acquire it's name (cli parameter, 
+hard coded variable, etc.)
+To open a file: 
+<variable name> = open(<file name>)
+Where <variable name> is instantiated as a variable of type File and <from file> is 
+the name of the file, 
+e.g. input = open(from_file)
+To read a file:
+<variable name> = input.read()
+Where <variable name> becomes a string containing the file's contents. 
+e.g. indata = input.read()
+To write to a file: 
+The same as opening it, but with an extra parameter 'w' (for Write).
+<variable name> = open(<file_name>, 'w')
+Where <variable name> is a variable of type File to be written to in the script, 
+and <file_name> is the file on disk to that is being edited. 
+e.g.
 output = open(to_file, 'w')
+Then, to write to a file, call the File's 'write' function, like this: 
+output.write(<data>)
+Where <data> is the data to be written to the file, such as a string. 
+e.g.
 output.write(indata)
-
-print "Alright, all done."
-
+After writing to the file, it is important to close it, so that nothing fails to be 
+written and the computer memory is freed. Files are close like this: 
 output.close()
 input.close()
+Anything that gets 'open'ed should be 'close'd, so both the 'input' and the 'output' 
+should be closed. 
