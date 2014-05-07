@@ -14,6 +14,9 @@ followed by an '=' character, followed by the variables value.
 e.g. 
 name = 'chor'
 is a string with the value of chor. 
+'\n' is  a new line, so "Hello,\nWorld!" comes out as:
+Hello,
+World!
 
 functions
 A function is specified by 'def' being stated on a new line, followed by the function's 
