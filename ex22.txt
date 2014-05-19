@@ -91,3 +91,20 @@ output.close()
 input.close()
 Anything that gets 'open'ed should be 'close'd, so both the 'input' and the 'output' 
 should be closed. 
+
+
+==
+equality 
+this is the comparitor symbol of a statement, which will return true if the variables
+on either side of the symbol are equivalent
+
+!=
+inequality
+this is the comparitor symbol of a statement, which will return true if the variable 
+on either side of the symbol are not equivalent
+
+= 
+assignment 
+this symbol sets the variable to the left of the symbol to hold the value of the symbol
+to the right of the variable. 
+
